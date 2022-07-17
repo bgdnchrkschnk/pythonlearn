@@ -56,4 +56,26 @@
 # print (result)
 
 
+# filename = "lesson3.py"
+# path = "intropython"
+# print (f"D:\{path}\{filename}")
+
+
+# val = 'russkiy korabl idi nahuy!'
+# print(val, len(val))
+
+# val = ''
+# if len(val):
+#     print (val)
+# else:
+#     print ("Пусто")
+
+
+# val = 'russkiy nahuy'
+# if "nahuy" in val:
+#     print("censored")
+# elif "russ":
+#     print("censored")
+# else:
+#     print(val)
 
