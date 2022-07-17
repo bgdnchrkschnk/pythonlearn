@@ -79,3 +79,26 @@
 # else:
 #     print(val)
 
+# value = "Spring"
+# # print (value[5])
+# print(value[-6])
+
+# value = 10
+# while value < 30:
+#          print (value, "success")
+#          value += 1
+# else:
+#     print ("stopped")
+
+
+# # Игра - Угадай число от 1 до 10
+#
+# value = 3
+# var_value = int(input("Угадай число от 1 до 10:"))
+# while var_value != value:
+#     if var_value > value:
+#         var_value = int(input("Попробуй меньше!"))
+#     elif var_value < value:
+#         var_value = int(input("Попробуй больше!"))
+# else:
+#     print("Правильно!")
