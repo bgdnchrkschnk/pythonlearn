@@ -102,3 +102,11 @@
 #         var_value = int(input("Попробуй больше!"))
 # else:
 #     print("Правильно!")
+#
+# count = 10
+# exit_flag = True
+# while exit_flag:
+#     count -=1
+#     if count > 0:
+#         exit_flag = False
+#     print("test")
