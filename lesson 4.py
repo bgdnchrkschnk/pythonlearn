@@ -46,7 +46,49 @@
 # new_l[0][0] = "test"
 # print(new_l, type(new_l))
 
-list1 = [[1,2,5,'asd']]
-list2 = list1 * 30
-print(list2)
+# qwerty = ('qwerty')
+# test_qwerty = list(qwerty)
+# print(test_qwerty)
 
+# qwerty = ['q', 'w', 'e', 'r', 't', 'y']
+# new_qwerty = '.' .join(qwerty)
+# print (qwerty, new_qwerty)
+
+# list1 = [1,2,5]
+# list1.append("fr")
+# print(list1)
+
+# lis1 = ["1","666","testing","54","FINE"]
+# for lol in lis1:
+#     if lol.isdigit():
+#         print(lol)
+#     else:
+#         print("not digit")
+
+
+# str1 = "35"
+# str2 = "54"
+# for value1 in str1:
+#     for value2 in str2:
+#         print(value1 + value2)
+
+
+# values = [1,2,3]
+# result = []
+# for val in values:
+#     result.append(val)
+# print(result)
+
+# val1 = [1,2,3,4,5]
+# val2 = val1.copy()
+# val2.append(6)
+# print(val1)
+
+# val1 = 0
+# val2 = [val1] * 6
+# val1 = 0
+# print (val2)
+
+# val = ['a', 'b', 'c', 'd', 'e']
+# val2 = "" .join(val[::2])
+# print(val2)
