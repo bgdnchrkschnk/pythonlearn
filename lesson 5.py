@@ -61,13 +61,31 @@
 # print(len(res))
 
 
-my_str = "uhuhlauiceijihuvyw"
-my_list = []
-for sym in my_str[::2]:
-    my_list.append(sym)
-print(my_list)
+# my_str = "uhuhlauiceijihuvyw"
+# my_list = []
+# for sym in my_str[::2]:
+#     my_list.append(sym)
+# print(my_list)
 
 # value= 'Vladimir Zelensky'
 # res = 'The president of Ukraine is '
 # value += res
 # print(res)
+
+# my_list = []
+# my_str = "qwerty"
+# str_index = [1,4,2,0,4,5,3,2,0]
+# for indx in str_index:
+#     my_list.append(my_str[indx])
+# print(my_list)
+
+# numb = 26756753655426326576883792
+# print (int(str(numb)[::-1]), type(numb))
+
+# numb = 26756753655426326576883792
+# numb = int("" .join(sorted(str(numb))))
+# print(numb, type(numb))
+
+# numb = 26756753655426326576883792
+# numb = int("" .join(sorted(str(numb), reverse=True)))
+# print(numb, type(numb))
