@@ -1,3 +1,23 @@
+# mystr = ['wd','feq','fvdv', "loxxx"]
+# newstr = []
+# for index in range(len(mystr)):
+#     val = mystr[index]
+#     if not index % 2:
+#         val = val.upper()
+#         newstr.append(val)
+#     else:
+#         val = val.lower()
+#         newstr.append(val)
+#
+# print(newstr)
+
+# ###
+# for index in range(len(mystr)):
+#     val = mystr[index]
+# ### ТОЖЕ САМОЕ ЧТО:
+# for index, val in enumerate(mystr):
+
+
 # Дана строка My name is Vova. I'm 41. But I still believe in magic. EXPELLIARMUS!
 # Составить строку из больших букв этого предложения
 
@@ -5,17 +25,7 @@
 # for val in mystr:
 #     if val
 
-mystr = ['wd','feq','fvdv', "loxxx"]
-newstr = []
-for index in range(len(mystr)):
-    val = mystr[index]
-    if not index % 2:
-        val = val.upper()
-        newstr.append(val)
-    else:
-        val = val.lower()
-        newstr.append(val)
-print(newstr)
+
 
 
 # Составить строку из маленьких букв этого предложения
