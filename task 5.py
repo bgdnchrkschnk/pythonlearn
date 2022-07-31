@@ -16,10 +16,15 @@
 #         break
 # print(res)
 
-### или решение в 2 строчки
+### Или решение в 2 строчки
 
 # value = 678037900974738700000
 # print(len(str(value)) - len(str(int(str(value)[::-1]))))
+
+### Ещё такое решение
+#
+# value = 678037900974738700000
+# print(len(str(value)) - len(str(value).rstrip("0")))
 
 # 3. Даны списки my_list_1 и my_list_2.
 # Создать список my_result в который вначале поместить
