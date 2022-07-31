@@ -38,8 +38,9 @@
 # Задание нужно выполнить ТОЛЬКО через цикл в цикле(См. пример выше) и приведение типов.
 # Генерирование через range или другие "фишки" я засчитывать не буду ))
 
-my_string = '0123456789'
-my_string = list(my_string)
-for val in my_string:
-    if val.isdigit:
-        my
+# my_string = '0123456789'
+# res = []
+# for value1 in my_string:
+#     for value2 in my_string:
+#            res.append(int(value1 + value2))
+# print(res)
