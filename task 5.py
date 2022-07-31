@@ -39,6 +39,22 @@
 #         res.append(val1)
 # print(res)
 
+# Ещё вариант
+#
+# my_list1 = [4,5,6,2,3,5]
+# my_list2 = [1,4,6,6,4,3]
+# res = my_list1[1::2] + my_list2[::2]
+# print(res)
+#
+# Ещё вариант через .extend()
+#
+# my_list1 = [4,5,6,2,3,5]
+# my_list2 = [1,4,6,6,4,3]
+# res = []
+# res.extend(my_list1[1::2])
+# res.extend(my_list2[::2])
+# print(res)
+
 # 4. Дан список my_list. СОЗДАТЬ НОВЫЙ список new_list у которого первый элемент из my_list
 # стоит на последнем месте. Если my_list [1,2,3,4], то new_list [2,3,4,1]
 
@@ -47,6 +63,10 @@
 # for ind in my_list[1:]:
 #     new_list.append(ind)
 # new_list.append(my_list[0])
+# print(new_list)
+
+# my_list = [4,5,6,2]
+# new_list = my_list[1:] + my_list[:1]
 # print(new_list)
 
 # 5.Дан список my_list. В ЭТОМ списке первый элемент переставить на последнее место.
@@ -60,17 +80,32 @@
 # my_list = my_list[::-1]
 # print(my_list)
 
+# ### Решение в одну строчку
+#
+# my_list = [5,-6,0,13]
+# my_list.append(my_list.pop(0))
+# print(my_list)
+
 # 6. Дана строка в которой есть числа (разделяются пробелами).
 # Например "43 больше чем 34 но меньше чем 56". Найти сумму ВСЕХ ЧИСЕЛ (А НЕ ЦИФР) в этой строке.
 # Для данного примера ответ - 133. (используйте split и проверку isdigit)
 
 # mystr = "43 больше чем 34 но меньше чем 56"
-# mystr = mystr.split(" ")
+# mystr = mystr.split()
 # mystr2 = []
 # for val in mystr:
 #     if val.isdigit():
 #         mystr2.append(int(val))
 # print(sum(mystr2))
+
+# ## Ещё решение
+#
+# mystr = "43 больше чем 34 но меньше чем 56"
+# res = 0
+# for val in mystr.split():
+#     if val.isdigit():
+#         res += int(val)
+# print(res)
 
 # 7. Дана строка my_str в которой символы МОГУТ повторяться и два символа l_limit, r_limit,
 # которые точно находятся в этой строке. Причем l_limit левее чем r_limit.
@@ -99,22 +134,42 @@
 #
 # print("" .join(substr[::-1]))
 
+# ### Короткое решение через .find()
+# mystr = "My long string"
+# l_limit = "o"
+# r_limit = "g"
+# l_index = mystr.find(l_limit)
+# r_index = mystr.rfind(r_limit)
+# substr = mystr[l_index+1:r_index]
+# print(substr)
 
 # 8. Дана строка my_str. Разделите эту строку на пары из двух символов и поместите эти пары в список.
 # Если строка содержит нечетное количество символов, пропущенный второй символ последней пары должен
 # быть заменен подчеркиванием ('_'). Примеры: 'abcd' -> ['ab', 'cd'], 'abcde' -> ['ab', 'cd', e_']
 # (используйте срезы длинны 2)
-
-# mystr = "ussr+"
-# mylist = []
-# for my
-
-
+#
+# myst= 'abcdej'
+# if len(myst) % 2:
+#     myst += '_'
+# res = []
+# for index in range(len(myst) // 2):
+#     index = index * 2
+#     newst = myst[index:index+2]
+#     res.append(newst)
+# print(res)
+#
+#
 # 9. Дан список чисел. Определите, сколько в этом списке элементов,
 # которые больше суммы двух своих соседей (слева и справа), и НАПЕЧАТАЙТЕ КОЛИЧЕСТВО таких элементов.
 # Крайние элементы списка никогда не учитываются, поскольку у них недостаточно соседей.
 # Для списка [2,4,1,5,3,9,0,7] ответом будет 3 потому что 4 > 2+1, 5 > 1+3, 9>3+0.
 #
+#
 # mylist = [2,4,1,5,3,9,0,7]
-# numbers = []
-# if
+# res = 0
+# for index in range(len(mylist)):
+#     if index in [0,len(mylist)-1]:
+#         continue
+#     if mylist[index] > mylist[index - 1] + mylist[index + 1]:
+#          res += 1
+# print(res)
