@@ -98,10 +98,32 @@
 #
 # print(mylist1set.union(mylist2set))
 
-mylist1 = "/home/res/PycharmProjects/Pandas"
-mylist2 = "/home/res/PycharmProjects/Hillel"
-print((set(mylist1).intersection(set(mylist2))))
+# mylist1 = "/home/res/PycharmProjects/Pandas"
+# mylist2 = "/home/res/PycharmProjects/Hillel"
+# print((set(mylist1).intersection(set(mylist2))))
+#
+# mylist1 = "/home/res/PycharmProjects/Pandas"
+# mylist2 = "/home/res/PycharmProjects/Hillel#"
+# print((set(mylist1).difference(set(mylist2))))
 
-mylist1 = "/home/res/PycharmProjects/Pandas"
-mylist2 = "/home/res/PycharmProjects/Hillel"
-print((set(mylist1).difference(set(mylist2))))
+# mylist1 = ["asd", "rd", "d", "d", "d", "d", "d"]
+# for val in set(mylist1):
+#     count = mylist1.count(val)
+#     print(val, count)
+
+
+# person = {"name": "John",
+#           "age": 23,
+#           "job": ["cop", "doctor"],
+#           "address": {"city": "Dnipro",
+#                       "street": "Polya"}}
+#
+# print(person["address"]["city"])
+# print(person["job"])
+
+# key = "NEW"
+# value = [1,2,3]
+# dummy = {key: value}
+# print(dummy)
+# dummy["NEW"] = "Hello"
+# print(dummy)
