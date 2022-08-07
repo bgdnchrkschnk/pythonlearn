@@ -47,6 +47,61 @@
 # alphabet = [chr(index) for index in range(ord("A"), ord("Z") +1)]
 # print(alphabet)
 
-mylist = ["qwe", "asdf", "123" , 23, -16]
-newlist = [value * 2 for value in mylist if type(value) == str and len(value) > 3]
-print(newlist)
+# mylist = ["qwe", "asdf", "123" , 23, -16]
+# newlist = [value * 2 for value in mylist if type(value) == str and len(value) > 3]
+# print(newlist)
+
+#
+# mylist = ["/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas"]
+#
+# for value in mylist:
+#     print(value)
+#
+# [print(value) for value in mylist]
+
+# set (множества)
+# mylist = ["/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Pandas",
+#           "/home/res/PycharmProjects/Hillel",
+#           "/home/res/PycharmProjec ts/Pandas",
+#           "/home/res/PycharmProjects/Pandas"]
+#
+# myset = set(mylist)
+# print(myset, type(myset))
+
+
+# mylist = "/home/res/PycharmProjects/Pandas"
+# print(len(set(mylist)))
+
+# mylist1 = [1,3,5,7,9,9,3]
+# mylist2 = [1,3,5,7,9,9,3,3,9,9,9,9]
+# print("success") if set(mylist1) == set(mylist2) else print("fail")
+#
+# mylist1 = [1,3,5,7,9,9,3]
+# mylist2 = [1,3,5,7,9,9,3,3,9,9,9,9]
+# print("success") if 7 in set(mylist1) else print("fail")
+
+
+# mylist1 = "/home/res/PycharmProjects/Pandas"
+# mylist2 = "/home/res/PycharmProjects/Hillel"
+#
+# mylist1set = set(mylist1)
+# mylist2set = set(mylist2)
+#
+# print(mylist1set.union(mylist2set))
+
+mylist1 = "/home/res/PycharmProjects/Pandas"
+mylist2 = "/home/res/PycharmProjects/Hillel"
+print((set(mylist1).intersection(set(mylist2))))
+
+mylist1 = "/home/res/PycharmProjects/Pandas"
+mylist2 = "/home/res/PycharmProjects/Hillel"
+print((set(mylist1).difference(set(mylist2))))
