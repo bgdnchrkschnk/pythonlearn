@@ -52,17 +52,18 @@
 # dict_2 = {1:11, 24:22, 3:11}
 # dict_1.update(dict_2)
 # print(dict_1
-
+#
 # dict_1 = {1:11, 2:2, 3:33}
 # dict_2 = {1:11, 24:22, 3:11}
 # new_dict = {**dict_1, **dict_2}
 # print(new_dict)
+#
+# price_list = [{"bread": 10}, {"water": 16}, {"banana": 2000}, {"water": 12}]
+# min_value_list = []
+# for val in price_list:
+#     min_value_list.append(list(val.values())[0])
+# print(min(min_value_list))
+# for price in price_list:
+#     if list(price.values())[0] == min(min_value_list):
+#         print(list(price.keys())[0])
 
-price_list = [{"bread": 10}, {"water": 16}, {"banana": 2000}, {"water": 12}]
-min_value_list = []
-for val in price_list:
-    min_value_list.append(list(val.values())[0])
-print(min(min_value_list))
-for price in price_list:
-    if list(price.values())[0] == min(min_value_list):
-        print(list(price.keys())[0])
