@@ -96,15 +96,15 @@
 
 # если ключ есть в двух словарях - поместить пару {ключ: [значение_из_первого_словаря, значение_из_второго_словаря]},
 
-# my_dict_1 = {"name": "Boris", "age": 15,
-#            "names": "Denis", "agef": 15,
-#            "namec": "Jackson", "agev": 45,
-#            "nameq": "Vladimir", "agee": 18,
-#            "namel": "Daniil", "age1": 11,"city":"New York"}
-# my_dict_2 = {"name": "John", "age": 15,
-#              "city":"Washington"}
-# res = {}
-# for key in my_dict_1:
-#     if key in my_dict_2:
-#         res[key] = [my_dict_1[key], my_dict_2[key]]
-# print(res)
+my_dict_1 = {"name": "Boris", "age": 15,
+           "names": "Denis", "agef": 15,
+           "namec": "Jackson", "agev": 45,
+           "nameq": "Vladimir", "agee": 18,
+           "namel": "Daniil", "age1": 11,"city":"New York"}
+my_dict_2 = {"name": "John", "age": 15,
+             "city":"Washington"}
+res = {}
+for key in my_dict_1:
+    if key in my_dict_2:
+        res[key] = [my_dict_1[key], my_dict_2[key]]
+print(res)
