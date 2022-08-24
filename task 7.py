@@ -15,13 +15,15 @@
 # print(new_list)
 
 # 2. Дан список строк my_list. Создать новый список в который поместить
-# элементы из my_list у которых первый символ - буква "a".
+# элементы из my_list у которых первый символ - буква "A".
 
-# mylist = ["Bogdan", "Denys", "Illya", "Maksym", "Vladislav", "Argam", "asd"]
+# mylist = ["Bogdan", "Denys", "Illya", "Maksym", "Vladislav", "Argam"]
 # new_list = []
 # for value in mylist:
-#     if value[0:1] == "a" or value[0:1] == "A":
+#     if value[0] == "A":
 #         new_list.append(value)
+#     else:
+#         continue
 # print(new_list)
 
 
@@ -48,11 +50,11 @@
 # 5. Дана строка my_str. Создать список в который поместить те символы из my_str,
 # которые встречаются в строке только один раз.
 
-# mylist = ["Bogdan", "Denys", "Illya", "Maksym", "Vladislav", "Argam"]
+# my_str = "Hello, my name is Bogdanchik!"
 # new_list = []
-# for value in mylist:
+# for value in my_str:
 #     for val in value:
-#         if value.count(val) == 1:
+#         if my_str.count(val) == 1:
 #             new_list.append(val)
 # print(new_list)
 
