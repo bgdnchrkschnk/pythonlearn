@@ -18,11 +18,22 @@ import os
 # Каждая строка файла содержит номер, фамилию, страну, некоторое число (таблица взята с википедии).
 # Разделитель - символ табуляции "\t"
 
+names_path = "names.txt"
+def get_surnames(names_path):
+    with open (names_path, "r") as txt:
+        surnames = []
+        readlines = txt.readlines()
+        for line in readlines:
+            surnames.append(line)
+        print(surnames)
+get_surnames(names_path)
 
 
-
-# 3. Написать функцию, которая получает в виде параметра имя файла (authors.txt) и возвращает список
-# словарей вида {"date_original": date_original, "date_modified": date_modified}
-# в которых date_original - это дата из строки (если есть),
-# а date_modified - эта же дата, представленная в формате "dd/mm/yyyy" (d-день, m-месяц, y-год)
-# Например [{"date_original": "8th February 1828", "date_modified": 08/02/1828},  ...]
+# # 3. Написать функцию, которая получает в виде параметра имя файла (authors.txt) и возвращает список
+# # словарей вида {"date_original": date_original, "date_modified": date_modified}
+# # в которых date_original - это дата из строки (если есть),
+# # а date_modified - эта же дата, представленная в формате "dd/mm/yyyy" (d-день, m-месяц, y-год)
+# # Например [{"date_original": "8th February 1828", "date_modified": 08/02/1828},  ...]
+#
+#
+# authors_path = "authors.txt"
