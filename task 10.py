@@ -39,5 +39,3 @@ import os
 #
 #
 # authors_path = "authors.txt"
-
-os.makedirs()
