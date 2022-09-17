@@ -103,16 +103,28 @@
 #     return list
 # print(split_pairs("eubiuhifwef"))
 
-def correct_sentence(text: str) -> str:
-    if not text[0].isupper():
-        text = text[0].upper() + text[1:]
-    if text[-1] != ".":
-        text += "."
-    return text
-
-print(correct_sentence("greetings, friends"))
-
-
+# def correct_sentence(text: str) -> str:
+#     if not text[0].isupper():
+#         text = text[0].upper() + text[1:]
+#     if text[-1] != ".":
+#         text += "."
+#     return text
+#
+# print(correct_sentence("greetings, friends"))
 
 
+def is_even(num: int) -> bool:
+    if not num % 2:
+        return True
+    else:
+        return False
 
+print(is_even(5))
+
+def nearest_value(values: set, one: int) -> int:
+    return min(values, key=lambda n:(abs(one - n), n))
+
+print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
+
+a = lambda x: x/2
+print(a(5))
