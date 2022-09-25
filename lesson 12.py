@@ -1,3 +1,10 @@
+# import re
+# str = "AC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DC"
+#
+# result = re.fullmatch('AC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DC', str)
+# print(result)
+
+
 # # ###################################################################
 # # def sort_by_bday(pers_dict):
 # #     age = pers_dict["age"]
@@ -51,31 +58,29 @@
 # # new = sorted(persons, key=sorted_by_bday)
 # # print(new)
 #
-# import random
-# import string
-# def generate_string(min, max):
-#     str_list = [random.choice(string.ascii_lowercase) for _ in range(random.randint(min,max))]
-#     return "" .join(str_list)
-#
-# def create_spaces(some_str):
-#     some_str_list = list(some_str)
-#     space_number = 0
-#     while space_number < len(some_str):
-#         new_space = random.randint(1,8)
-#         space_number += new_space
-#         some_str_list[new_space] = " "
-#     return "" .join(some_str_list)
-#
-# def transform_string(some_str):
-#     spaced_string = create_spaces(some_str)
-#     return some_str
-#
-# my_string = generate_string(30,50)
-# new_str = transform_string(my_string)
-# print(my_string)
+import random
+import string
+def generate_string(min, max):
+    str_list = [random.choice(string.ascii_lowercase) for _ in range(random.randint(min,max))]
+    return "" .join(str_list)
 
-# import re
-# str = "AC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DC"
-#
-# result = re.fullmatch('AC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DCAC/DC', str)
-# print(result)
+def create_spaces(some_str):
+    some_str_list = list(some_str)
+    space_number = 0
+    while space_number < len(some_str_list):
+        new_space = random.randint(2,11)
+        space_number += new_space
+        if space_number < len(some_str_list):
+            some_str_list[space_number] = " "
+    return "" .join(some_str_list)
+
+def transform_string(some_str):
+    spaced_string = create_spaces(some_str)
+    return some_str
+
+my_string = generate_string(30,50)
+my_string_spaced = create_spaces(my_string)
+# new_str = transform_string(my_string)
+print(my_string)
+print(my_string_spaced)
+
