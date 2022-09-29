@@ -117,13 +117,14 @@
 # # e_mail = create_email(domains, names)
 # # print(e_mail)
 # # >>>miller.249@sgdyyur.com
-# import random
-# import string
-# names = ["Bogdan", "Dmitry", "Vladislav", "Andriy", "Sergiy"]
-# domains = ["com", "net", "ua", "od.ua", "ru"]
-# def create_emails(names, domains):
-#     text = [random.choice(string.ascii_lowercase) for _ in range(random.randint(5,7))]
-#     text = ''.join(text)
-#     email = f"{random.choice(names)}.{random.randint(100,1000)}@{text}.{random.choice(domains)}"
-#     print(email)
-# create_emails(names, domains)
+
+import random
+import string
+names = ["Bogdan", "Dmitry", "Vladislav", "Andriy", "Sergiy"]
+domains = ["com", "net", "ua", "od.ua", "ru"]
+def create_emails(names, domains):
+    text = [random.choice(string.ascii_lowercase) for _ in range(random.randint(5,7))]
+    text = ''.join(text)
+    email = f"{random.choice(names)}.{random.randint(100,1000)}@{text}.{random.choice(domains)}"
+    return email
+print(create_emails(names, domains))

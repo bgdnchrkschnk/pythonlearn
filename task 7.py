@@ -49,13 +49,13 @@
 
 # 5. Дана строка my_str. Создать список в который поместить те символы из my_str,
 # которые встречаются в строке только один раз.
-
+# import string
+#
 # my_str = "Hello, my name is Bogdanchik!"
 # new_list = []
-# for value in my_str:
-#     for val in value:
-#         if my_str.count(val) == 1:
-#             new_list.append(val)
+# for i in set(my_str):
+#     if my_str.count(i) == 1 and i in string.ascii_letters:
+#         new_list.append(i)
 # print(new_list)
 
 # 6. Даны две строки. Создать список в который поместить те символы,
@@ -68,14 +68,15 @@
 
 # 7. Даны две строки. Создать список в который поместить те символы, которые есть в обеих строках,
 # но в каждой только по одному разу.
+#
+mystr1 = "Kyiv is a capital of Ukrane"
+mystr2 = "London is a capital of Great Britane"
+res = []
+for value in set(mystr1).intersection(set(mystr2)):
+    if mystr1.count(value) == 1:
+        res.append(value)
+print(res)
 
-# mystr1 = "Kyiv is a capital of Ukrane"
-# mystr2 = "London is a capital of Great Britane"
-# res = []
-# for value in mystr1:
-#     if mystr1.count(value) == 1 and mystr2.count(value) == 1:
-#         res.append(value)
-# print(res)
 
 ### Ещё одно решение
 
