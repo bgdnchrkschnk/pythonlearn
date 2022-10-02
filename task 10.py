@@ -18,18 +18,18 @@ import os
 # Каждая строка файла содержит номер, фамилию, страну, некоторое число (таблица взята с википедии).
 # Разделитель - символ табуляции "\t"
 
-names_path = "names.txt"
-def get_surnames(names_path):
-    with open (names_path, "r") as txt:
-        surnames = []
-        new_surnames = []
-        readlines = txt.readlines()
-        for line in readlines:
-            surnames.append(line.split())
-        for val in surnames:
-            new_surnames.append(val[1])
-        print(new_surnames)
-get_surnames(names_path)
+# names_path = "names.txt"
+# def get_surnames(names_path):
+#     with open (names_path, "r") as txt:
+#         surnames = []
+#         new_surnames = []
+#         readlines = txt.readlines()
+#         for line in readlines:
+#             surnames.append(line.split())
+#         for val in surnames:
+#             new_surnames.append(val[1])
+#         print(new_surnames)
+# get_surnames(names_path)
 
 # # 3. Написать функцию, которая получает в виде параметра имя файла (authors.txt) и возвращает список
 # # словарей вида {"date_original": date_original, "date_modified": date_modified}
@@ -38,5 +38,20 @@ get_surnames(names_path)
 # # Например [{"date_original": "8th February 1828", "date_modified": 08/02/1828},  ...]
 #
 #
-# authors_path = "authors.txt"
 
+
+def take_data_date(file_name):
+    with open(file_name, "r") as txt_file:
+        data = txt_file.readlines()
+    return data
+
+def create_split_list(file_name):
+    res = []
+    for data in take_data_date(file_name):
+        data = data.split("-")[0]
+        data = data.split()
+        if len(data) == 3:
+            res.append(data)
+        return res
+
+print(create_split_list("authors.txt"))
