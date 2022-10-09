@@ -112,5 +112,29 @@ data = [ 1, 23, 12, 90, 45]
 # print(res)
 
 
-data_nech = list(filter(lambda x: x % 2, data))
-print(data_nech)
+# data_nech = list(filter(lambda x: x % 2, data))
+# print(data_nech)
+#
+# my_list = [0,1,2,-3,-5,6,7,-12]
+#
+# res = list(filter(lambda x: len(str(abs(x))) > 1, my_list))
+# print(res)
+#
+# data = [1,-25,16,-8,9]
+# res = list(filter(lambda x: x!=abs(x), data))
+# print(res)
+#
+# data = [1,-25,16,-8,9]
+# res = list(filter(lambda x: len(str(abs(x))) > 1, data))
+# print(res)
+
+
+data = ["1", "25", "16", "8", "9"]
+res = []
+[res.append(int(i)) for i in data]
+print(res)
+
+data = [1,-25,16,-8,9]
+res = []
+[res.append(i**2) for i in data]
+print(res)
