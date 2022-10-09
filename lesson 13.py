@@ -5,9 +5,9 @@
 # numbs2 = (2,3,4)
 #
 # res = zip(numb, months, numbs2)
-# #
-# # print(dict(res))
-# # print(tuple(res))
+# # #
+# print(dict(res))
+# print(tuple(res))
 # print(list(res))
 
 # data = ["John", "Jim", "Jacob", "Denis", "Avanesyants"]
@@ -129,12 +129,38 @@ data = [ 1, 23, 12, 90, 45]
 # print(res)
 
 
-data = ["1", "25", "16", "8", "9"]
-res = []
-[res.append(int(i)) for i in data]
-print(res)
+# data = ["1", "25", "- 16", "8", "9"]
+# # res = []
+# # [res.append(int(i)) for i in data]
+# # print(res)
+# res = list(map(lambda x: int(x), data))
+# print(res)
+#
+#
+# data = [1,25,16,8,9]
+# res = []
+# [res.append(i ** 0.5) for i in data]
+# print(res)
+# res = list(map(lambda x: x ** 0.5, data))
+# print(res)
 
-data = [1,-25,16,-8,9]
-res = []
-[res.append(i**2) for i in data]
+# data = [1,25,16,8,9]
+# res = list(map(lambda x: x ** 2, data))
+# print(res)
+# res = [(i ** 2) for i in data ]
+# print(res)
+
+# data = [1,25,16,-8,9]
+# # res = list(map(lambda x: -x, data))
+# # print(res)
+# res = [-i for i in data]
+# print(res)
+
+data = [1,25,16,8,-9]
+def my_function(x):
+    if x != abs(x):
+        return -1
+    else:
+        return x ** 0.5
+res = list(map(my_function, data))
 print(res)
