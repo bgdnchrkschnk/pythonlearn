@@ -156,11 +156,43 @@ data = [ 1, 23, 12, 90, 45]
 # res = [-i for i in data]
 # print(res)
 
-data = [1,25,16,8,-9]
-def my_function(x):
-    if x != abs(x):
-        return -1
-    else:
-        return x ** 0.5
-res = list(map(my_function, data))
-print(res)
+# data = [1,25,16,8,-9]
+# def my_function(x):
+#     if x != abs(x):
+#         return -1
+#     else:
+#         return x ** 0.5
+# res = list(map(my_function, data))
+# print(res)
+
+import requests
+# link = "https://icanhazip.com/"
+# link2 = "https://google.com.ua/"
+# print(requests.get(link).status_code)
+# print(requests.get(link ).text)
+
+# url = "http://api.forismatic.com/api/1.0/"
+# param = {"method": 'getQuote',
+#          "format": "json",
+#          "lang": "en",
+#          "key" : 10}
+#
+# res_status_code = requests.get(url, params=param).status_code
+# res_response = requests.get(url, params=param).text
+# print(res_status_code)
+# print(res_response)
+
+
+
+def get_quotes():
+    param = {"method": 'getQuote',
+    "format": "json",
+    "lang": "en",
+    "key": 100}
+    data = requests.get("http://api.forismatic.com/api/1.0/", params=param).json()
+    author = data["quoteAuthor"]
+    quote = data["quoteText"]
+    print(f"{author}: {quote}- (c) parser by MILAN STAR")
+
+get_quotes()
+
