@@ -183,30 +183,31 @@ import requests
 # print(res_response)
 
 
-
-# def get_quotes():
-#     param = {"method": 'getQuote',
-#     "format": "json",
-#     "lang": "en",
-#     "key": 100}
-#     data = requests.get("http://api.forismatic.com/api/1.0/", params=param).json()
-#     author = data["quoteAuthor"]
-#     quote = data["quoteText"]
-#     print(f"{author}: {quote}- (c) parser by MILAN STAR")
-#
-# get_quotes()
-
 import requests
-headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36",
-           "Authorization" : "Bearer 4ecc7a7f15532f24821f31d2604d0bc69c19562496286a142c554e4f914c2bfb"}
-data = {"custname": "Bodik",
-        "custtel": "0966410575",
-        "custemail": "bgdnchrkschnk@gmail.com",
-        "comments": "Please call me!",
-        "size": "large",
-        "topping": "bacon",
-        "topping": "onion",
-        "topping": "mushrooms"
-        }
-request = requests.post("http://httpbin.org/post", data=data, headers=headers)
-print(request.text)
+def get_quotes():
+    param = {"method": 'getQuote',
+    "format": "json",
+    "lang": "en",
+    "key": 100}
+    request = requests.get("http://api.forismatic.com/api/1.0/", params=param)
+    data = request.json
+    author = data["quoteAuthor"]
+    quote = data["quoteText"]
+    print(f"{author}: {quote}- (c) parser by MILAN STAR")
+
+get_quotes()
+
+# import requests
+# headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36",
+#            "Authorization" : "Bearer 4ecc7a7f15532f24821f31d2604d0bc69c19562496286a142c554e4f914c2bfb"}
+# data = {"custname": "Bodik",
+#         "custtel": "0966410575",
+#         "custemail": "bgdnchrkschnk@gmail.com",
+#         "comments": "Please call me!",
+#         "size": "large",
+#         "topping": "bacon",
+#         "topping": "onion",
+#         "topping": "mushrooms"
+#         }
+# request = requests.post("http://httpbin.org/post", data=data, headers=headers)
+# print(request.text)
