@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/new_quotes.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/persons.csv">
           <value>
             <Attribute>
@@ -18,6 +25,13 @@
           </value>
         </entry>
         <entry key="/persons_futuristic.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/quotes.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
