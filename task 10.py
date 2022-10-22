@@ -38,5 +38,20 @@ import os
 # # Например [{"date_original": "8th February 1828", "date_modified": 08/02/1828},  ...]
 #
 #
-# authors_path = "authors.txt"
 
+
+def take_data_date(file_name):
+    with open(file_name, "r") as txt_file:
+        data = txt_file.readlines()
+    return data
+
+def create_split_list(file_name):
+    res = []
+    for data in take_data_date(file_name):
+        data = data.split("-")[0]
+        data = data.split()
+        if len(data) == 3:
+            res.append(data)
+        return res
+
+print(create_split_list("authors.txt"))
