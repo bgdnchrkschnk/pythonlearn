@@ -127,15 +127,31 @@
 # print(p1.__dict__)
 # p1.print_point()
 
-class Friends:
-    def __init__(self, name, age, job):
-        self.name = name
-        self.age = age
-        self.job = job
-    # def __repr__(self):
-    #     return f"My friend - {self.name}"
-    def __str__(self):
-        return f"Close friend - {self.name}"
+# class Friends:
+#     def __init__(self, name, age, job):
+#         self.name = name
+#         self.age = age
+#         self.job = job
+#     # def __repr__(self):
+#     #     return f"My friend - {self.name}"
+#     def __str__(self):
+#         return f"Close friend - {self.name}"
+#
+# fr1 = Friends("Vladik", 26, "3D Animator")
+# print(fr1.age)
 
-fr1 = Friends("Vladik", 26, "3D Animator")
 
+# class Car:
+#     def __init__(self, model, year, price):
+#         self.model = model
+#         self.year = year
+#         self.price = price
+#         self.print_tech()
+#
+#     def print_tech(self):
+#         print(self.model)
+#         print(self.year)
+#         print(self.price)
+#
+#
+# mercedes = Car("cla 180", 2017, "25000$")

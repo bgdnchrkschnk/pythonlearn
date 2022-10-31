@@ -54,4 +54,5 @@ def create_split_list(file_name):
             res.append(data)
         return res
 
+
 print(create_split_list("authors.txt"))
