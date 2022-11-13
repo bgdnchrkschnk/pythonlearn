@@ -7,7 +7,7 @@
 # ловкость    (int от 1 до 10. Начальное значение 1)
 # интелект    (int от 1 до 10. Начальное значение 1)
 #
-# Каждый юнит может лечиться (увеличить свое здоровье на 10 пунктов, максимум 100) - написать метод увеличения здаровья.
+# Каждый юнит может лечиться (увеличить свое здоровье на 10 пунктов, максимум 100) - написать метод увеличения здoровья.
 #
 # Есть три типа юнитов - маги, лучники и рыцари.
 # У магов есть дополнительная характеристика - тип магии (воздух, огонь, вода)
@@ -24,13 +24,13 @@
 
 
 class Unit:
-    def __init__(self, name: str, clan: str, health=100, power=1, skill=1, intelligence=1):
+    def __init__(self, name, clan):
         self.name = name
         self.clan = clan
-        self.health = health
-        self.power = power
-        self.skill = skill
-        self.intelligence = intelligence
+        self.health = 100
+        self.power = 1
+        self.skill = 1
+        self.intelligence = 1
 
     def raise_health(self):
         if self.health < 100:
@@ -41,26 +41,34 @@ class Unit:
     def raise_skills(self):
         if isinstance(self, Mage) and self.intelligence < 10:
             self.intelligence += 1
-        elif isinstance(self, Archer) and self.arch_type < 10:
-            self.arch_type += 1
-        elif isinstance(self, Knight) and self.weapon_type < 10:
-            self.weapon_type += 1
+        elif isinstance(self, Archer) and self.skill < 10:
+            self.skill += 1
+        elif isinstance(self, Knight) and self.power < 10:
+            self.power += 1
 
 
 class Mage(Unit):
 
-    def __init__(self, name, clan, health, power, skill, intelligence, magic_type: str):
-        super().__init__(name, clan, health, power, skill, intelligence)
+    def __init__(self, name, clan, magic_type):
+        super().__init__(name, clan)
         self.magic_type = magic_type
 
 
 class Archer(Unit):
-    def __init__(self, name, clan, health, power, skill, intelligence, arch_type: str):
-        super().__init__(name, clan, health, power, skill, intelligence)
+    def __init__(self, name, clan, arch_type):
+        super().__init__(name, clan)
         self.arch_type = arch_type
 
 
 class Knight(Unit):
-    def __init__(self, name, clan, health, power, skill, intelligence, weapon_type: str):
-        super().__init__(name, clan, health, power, skill, intelligence)
+    def __init__(self, name, clan, weapon_type):
+        super().__init__(name, clan)
         self.weapon_type = weapon_type
+
+
+mag = Mage("gh0st", "IN'S1DE", "fire")
+mag.raise_skills()
+mag.raise_skills()
+
+print(mag.health)
+
