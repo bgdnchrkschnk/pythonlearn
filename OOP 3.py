@@ -36,15 +36,37 @@
 #
 #
 
-class Rec:
-    def __init__(self, w, h):
-        self.w = w
-        self.h = h
-        self._sq = self.sq
-
-    @property
-    def sq(self):
-        return self.w * self.h
-
-rec1 = Rec(5,7)
-print(rec1.sq)
+# class Rec:
+#     def __init__(self, w, h):
+#         self.w = w
+#         self.h = h
+#         self._sq = self.sq
+#
+#     @property
+#     def sq(self):
+#         return self.w * self.h
+#
+#     @staticmethod
+#     def perimeter(a, b):
+#         return (a + b) *2
+#
+#
+# rec1 = Rec(5, 5)
+# print(rec1.perimeter(10,20))
+# import time
+# def time_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         start_time = time.time()
+#         res = func(*args, **kwargs)
+#         print(time.time() - start_time)
+#         return res
+#     return wrapper
+#
+# @time_decorator
+# def factor(number):
+#     res = 1
+#     for numb in range (1,number):
+#         res += numb
+#     return f"Факториал числа {number} - {res}"
+#
+# print(factor(10))
