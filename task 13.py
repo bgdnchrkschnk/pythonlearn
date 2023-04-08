@@ -19,7 +19,7 @@ def get_quotes(number):
             quotes.append([author, quote])
             time.sleep(1)
     return quotes
-
+print(get_quotes(1))
 
 # 2. Написать функцию, которая принимает результат предыдущей функции и сохраняет в csv файл.
 # Имя файла сделать параметром по умолчанию.
@@ -37,4 +37,3 @@ def quote_csv(name):
         for quote in quotes:
             file.writerow([quote[0], quote[1], "http://api.forismatic.com/api/1.0/"])
     return file
-print(quote_csv("new_quotes.csv"))

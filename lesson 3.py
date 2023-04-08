@@ -1,10 +1,10 @@
-# value = int(input('Ваш возраст:'))
-# if value > 18:
-#     print('Доступ к 18+ контенту открыт! Вам', value, 'лет.')
-# elif value == 18:
-#     print('Доступ к 18+ контенту открыт! Вам', value, 'лет.')
-# else:
-#     print('Доступ к 18+ контенту закрыт! Вам', value, 'лет!')
+value = int(input('Ваш возраст:'))
+if value > 18:
+    print('Доступ к 18+ контенту открыт! Вам', value, 'лет.')
+elif value == 18:
+    print('Доступ к 18+ контенту открыт! Вам', value, 'лет.')
+else:
+    print('Доступ к 18+ контенту закрыт! Вам', value, 'лет!')
 
 # value = int(input("Число:"))
 # if value % 3 == 0 and value % 2 == 0:

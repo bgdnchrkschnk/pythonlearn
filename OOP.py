@@ -141,17 +141,20 @@
 # print(fr1.age)
 
 
-# class Car:
-#     def __init__(self, model, year, price):
-#         self.model = model
-#         self.year = year
-#         self.price = price
-#         self.print_tech()
+class Car:
+    def __init__(self, model, year, price):
+        self.model = model
+        self.year = year
+        self.price = price
+        self.print_tech()
+
+    def print_tech(self):
+        print(self.model)
+        print(self.year)
+        print(self.price)
 #
-#     def print_tech(self):
-#         print(self.model)
-#         print(self.year)
-#         print(self.price)
-#
-#
-# mercedes = Car("cla 180", 2017, "25000$")
+
+mercedes = Car("cla 180", 2017, "25000$")
+
+
+

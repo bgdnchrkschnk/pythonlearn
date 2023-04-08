@@ -11,13 +11,7 @@ import re
 
 ### ИЛИ ТАКОЙ ВАРИАНТ
 
-def read_json(path):
-    json_file = open(path)
-    json_file = json.load(json_file)
-    return json_file
-
-json_file = read_json("data.json")
-print(json_file)
+# z
 # 2. Написать функцию сортировки данных по ФАМИЛИИ в поле "name" (у тех у кого она есть).
 # Например для Rene Descartes фамилия это Descartes, у Pierre de Fermat - Fermat и т.д.
 # Если фамилии нет, то использовать имя, например Euclid.

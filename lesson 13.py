@@ -165,7 +165,7 @@ data = [ 1, 23, 12, 90, 45]
 # res = list(map(my_function, data))
 # print(res)
 
-import requests
+# import requests
 # link = "https://icanhazip.com/"
 # link2 = "https://google.com.ua/"
 # print(requests.get(link).status_code)
@@ -211,3 +211,4 @@ get_quotes()
 #         }
 # request = requests.post("http://httpbin.org/post", data=data, headers=headers)
 # print(request.text)
+
