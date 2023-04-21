@@ -366,33 +366,64 @@ import string
 # f.breathe()
 #from abc import ABC, abstractmethod
 
-class Human():
-    def __init__(self, age):
+# class Human():
+#     def __init__(self, age):
+#         self.age = age
+#
+#     #@abstractmethod
+#     def piss(self):
+#         raise NotImplementedError('piss func not implemented!')
+#
+# class Man(Human):
+#     def __init__(self, age, name):
+#         super().__init__(age)
+#         self.name = name
+#
+#     def piss(self):
+#         print("Pissing via penis")
+#
+# class Woman(Human):
+#     def __init__(self, age, name):
+#         super().__init__(age)
+#         self.name = name
+#
+#     def pisss(self):
+#         print("Pissing via vagina")
+#
+# m = Man(26, "Bogdan")
+# w = Woman(22, "Diana")
+# print(m.__dict__)
+# print(w.__dict__)
+# m.piss()
+# h = Human(15)
+
+
+class Parent:
+    def __init__(self, name, age):
+        self.name = name
         self.age = age
 
-    #@abstractmethod
-    def piss(self):
-        raise NotImplementedError('piss func not implemented!')
+    def act(self):
+        print(f"act like a parent")
 
-class Man(Human):
-    def __init__(self, age, name):
-        super().__init__(age)
+class Friend:
+    def __init__(self, name, age, music):
         self.name = name
+        self.age = age
+        self.music = music
 
-    def piss(self):
-        print("Pissing via penis")
+    def act(self):
+        print(f"act like a friend")
 
-class Woman(Human):
-    def __init__(self, age, name):
-        super().__init__(age)
-        self.name = name
+class Daughter(Parent, Friend):
+    STATUS = "Active"
+    def __init__(self, name, age, music, sex):
+        Parent.__init__(self, name, age)
+        Friend.__init__(self, name, age, music)
+        self.sex = sex
 
-    def pisss(self):
-        print("Pissing via vagina")
 
-m = Man(26, "Bogdan")
-w = Woman(22, "Diana")
-print(m.__dict__)
-print(w.__dict__)
-m.piss()
-h = Human(15)
+d = Daughter("daugher", 15, "pop", "female")
+print(Friend.act(d))
+
+
