@@ -42,4 +42,3 @@ class Quotes:
             print(f"{i}\nStatus code: {status_code}\n-----------------------------")
 
 
-Quotes.get_quotes(4)
