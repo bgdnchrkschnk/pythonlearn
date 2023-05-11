@@ -41,9 +41,12 @@ class BankSupport:
         else:
             self.account_debet -= sum
 
+def _calculate(a,b):
+    return a+b
+
 @pytest.fixture
-def say_hello():
-    print("hello")
+def calculate():
+    return _calculate
 
 
 @pytest.fixture
@@ -69,9 +72,10 @@ def check_exception():
 
 
 
-def test_no_card(account_provider, card_provider):
+def test_no_card(account_provider, card_provider, calculate):
     assert account_provider(0).card_kind == card_provider.NO_CARD, \
         f"Incorrect type of card has been returned: {card_kind}. Should be {card_provider.NO_CARD}"
+    print(calculate(1,5))
 
 
 def test_normal_card(account_provider, card_provider):
@@ -88,5 +92,12 @@ def test_platinum_card(account_provider, card_provider):
         f"Incorrect type of card has been returned: {card_kind}. Should be {card_provider.PLATINUM_CARD}"
 
 def test_negative_debet(account_provider, check_exception):
-    assert check_exception(account_provider, IncorrectDebetError, 0), f"Exception IncorrectDebetError hasn't been raised \
-     when created account with negative debet {str(-10)}"
+    negative_debet = -10.0
+    assert not check_exception(account_provider, IncorrectDebetError, negative_debet), f"Exception IncorrectDebetError hasn't been raised \
+     when created account with negative debet {str(-negative_debet)}"
+
+
+
+
+
+
