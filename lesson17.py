@@ -139,6 +139,7 @@ class Androgin(Man, Woman):
                 self.__wife.marry(self, marry_partner=False)
 
 import pytest
+from pytest_lazyfixture import lazy_fixture
 
 @pytest.fixture
 def dimas():
@@ -146,9 +147,21 @@ def dimas():
     return dimas
 
 @pytest.fixture
+def vladik():
+    return Man("Vlad", "Butnaru", 172, 60, datetime.date(1996, 11, 2))
+
+@pytest.fixture
 def woman_example():
-    woman_example = Woman("Nastya", "Karaulan", 165, 55, datetime.date(1996,11,21))
-    return woman_example
+    return Woman("Nastya", "Karaulan", 165, 55, datetime.date(1996,11,21))
+
+@pytest.fixture
+def woman_example2():
+    return Woman("Lolita", "Mochulyak", 163, 65, datetime.date(1996,1,10))
+
+@pytest.fixture
+def androgin_example():
+    return Androgin("Boris", "Moiseev", 180, 80, datetime.date(1954,3,4))
+
 
 @pytest.mark.parametrize("testing_date",[
         (datetime.date(2025,10,17)),
@@ -160,6 +173,28 @@ def test_age_checker(dimas, testing_date):
 def test_woman_child_birth(woman_example, dimas):
     child = woman_example.birth("Kolya", 15, 2, dimas)
     assert isinstance(child, Human) and child in dimas.children and child in woman_example.children
+
+
+def test_child_surname_correct(dimas, woman_example, androgin_example):
+    childwoman = woman_example.birth("ch1", 20, 3, dimas)
+    childandrogin = androgin_example.birth("ch2", 20, 3, dimas)
+    assert childwoman.surname == dimas.surname and childandrogin.surname == dimas.surname
+
+# @pytest.mark.parametrize("mother, father", [
+#     ("woman_example", "dimas"),
+#     ("woman_example2", "vladik")])
+# def test_child_surname(mother:Woman,father:Man, request):
+#     mother = request.getfixturevalue(mother)
+#     father = request.getfixturevalue(father)
+#     child:Human = mother.birth("Slavik", 18, 2, father)
+#     assert child.surname == father.surname
+
+@pytest.mark.parametrize("mother, father", [
+    (lazy_fixture("woman_example"), lazy_fixture("dimas")),
+    (lazy_fixture("woman_example2"), lazy_fixture("vladik"))])
+def test_child_surname(mother:Woman,father:Man, request):
+    child:Human = mother.birth("Slavik", 18, 2, father)
+    assert child.surname == father.surname
 
 
 
