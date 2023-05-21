@@ -43,11 +43,11 @@
 #
 # plus(1,2,3,4,5, c=0)
 #
-a = [1,5,2,3,5,6]
-print(*a)
-#
-a,*b,c = True, 5, 16, "good"
-print(a,b,c)
+# a = [1,5,2,3,5,6]
+# print(*a)
+# #
+# a,*b,c = True, 5, 16, "good"
+# print(a,b,c)
 #
 # lis = [5,12]
 # print(tuple(range(*lis)))
@@ -61,7 +61,13 @@ print(a,b,c)
 # test(6,7,4, re=100)
 
 
+import json
 
+dic = {"name":"John", "age":30, "car":None, "examples":{"firstname":1, "secondname":2}}
 
+dic_json = json.dumps(dic)
+print(dic_json, type(dic_json))
 
-
+dicc = json.loads(dic_json)
+print(dicc, type(dicc))
+print(dicc["examples"]["firstname"])

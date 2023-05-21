@@ -90,12 +90,12 @@ class Woman(Human):
     def husband(self):
         return self.__husband
 
-    def marry(self, partner: Man, marry_partner=True):
+    def marry(self, partner, marry_partner=True):
         self.__husband = partner
         if marry_partner:
             self.__husband.marry(self, marry_partner=False)
 
-    def birth(self, name, height, weight, father: Man):
+    def birth(self, name, height, weight, father):
         child = random.choice([Man,Woman])(name,father.surname,height,weight, datetime.date.today())
         child.mother = self
         child.father = father
@@ -128,15 +128,15 @@ class Androgin(Man, Woman):
             birth_date)
         self.sex = "Androgin from Enneade"
 
-    def marry(self, partner: Human, marry_partner=True):
+    def marry(self, partner: Human,  marry_partner = True):
         if isinstance(partner, Man):
             self.__husband = partner
             if marry_partner:
-                self.__husband.marry(self, marry_partner=False)
+                self.__husband.marry(self, marry_partner = False)
         elif isinstance(partner, Woman) or isinstance(partner, Androgin):
             self.__wife = partner
             if marry_partner:
-                self.__wife.marry(self, marry_partner=False)
+                self.__wife.marry(self, marry_partner = False)
 
 import pytest
 from pytest_lazyfixture import lazy_fixture
@@ -161,6 +161,10 @@ def woman_example2():
 @pytest.fixture
 def androgin_example():
     return Androgin("Boris", "Moiseev", 180, 80, datetime.date(1954,3,4))
+
+@pytest.fixture
+def androgin_example2():
+    return Androgin("Elton", "John", 178, 85, datetime.date(1947,3,25))
 
 
 @pytest.mark.parametrize("testing_date",[
@@ -192,9 +196,44 @@ def test_child_surname_correct(dimas, woman_example, androgin_example):
 @pytest.mark.parametrize("mother, father", [
     (lazy_fixture("woman_example"), lazy_fixture("dimas")),
     (lazy_fixture("woman_example2"), lazy_fixture("vladik"))])
-def test_child_surname(mother:Woman,father:Man, request):
+def test_child_surname_not_married(mother:Woman,father:Man):
     child:Human = mother.birth("Slavik", 18, 2, father)
     assert child.surname == father.surname
+
+
+@pytest.mark.parametrize("woman, man",[
+    (lazy_fixture("woman_example"), lazy_fixture("dimas")),
+    (lazy_fixture("woman_example2"), lazy_fixture("vladik"))
+])
+def test_marrying(woman:Woman,man:Man):
+    woman.marry(man)
+    assert woman.husband and man.wife
+
+
+@pytest.mark.parametrize("mother, father", [
+    (lazy_fixture("woman_example"), lazy_fixture("dimas")),
+    (lazy_fixture("woman_example2"), lazy_fixture("vladik"))])
+def test_child_surname_married(mother:Woman, father:Man):
+    mother.marry(father)
+    child = mother.birth("Gena", 13, 4, father)
+    assert child.surname == father.surname and mother.husband and father.wife
+
+
+@pytest.mark.parametrize("mother, androgin", [
+    (lazy_fixture("woman_example"), lazy_fixture("androgin_example")),
+    (lazy_fixture("woman_example2"), lazy_fixture("androgin_example2"))])
+def test_child_surname_married_with_androgin(mother:Woman, androgin:Androgin):
+    androgin.marry(mother)
+    child = mother.birth("Gena", 13, 4, androgin)
+    assert child.surname == androgin.surname and mother.husband == androgin
+
+
+@pytest.mark.parametrize("mother, androgin", [
+    (lazy_fixture("woman_example"), lazy_fixture("androgin_example")),
+    (lazy_fixture("woman_example2"), lazy_fixture("androgin_example2"))])
+def test_child_surname_not_married_with_androgin(mother:Woman, androgin:Androgin):
+    child = mother.birth("Gena", 13, 4, androgin)
+    assert child.surname == androgin.surname
 
 
 
