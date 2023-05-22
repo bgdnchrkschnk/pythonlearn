@@ -61,13 +61,45 @@
 # test(6,7,4, re=100)
 
 
-import json
+# import json
+#
+# dic = {"name":"John", "age":30, "car":None, "examples":{"firstname":1, "secondname":2}}
+#
+# dic_json = json.dumps(dic)
+# print(dic_json, type(dic_json))
+#
+# dicc = json.loads(dic_json)
+# print(dicc, type(dicc))
+# print(dicc["examples"]["firstname"])
 
-dic = {"name":"John", "age":30, "car":None, "examples":{"firstname":1, "secondname":2}}
+import requests
+from pprint import pprint
 
-dic_json = json.dumps(dic)
-print(dic_json, type(dic_json))
+pet_info_text = """
+{
+  "id": 10,
+  "name": "TextDoggie",
+  "category": {
+    "id": 1,
+    "name": "Dogs"
+  },
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}
+"""
 
-dicc = json.loads(dic_json)
-print(dicc, type(dicc))
-print(dicc["examples"]["firstname"])
+headers = {
+    'accept': 'application/xml',
+    'Content-Type': 'application/json'
+}
+
+pet_addition1 = requests.put("https://petstore3.swagger.io/api/v3/pet", json=pet_info_text, headers=headers)
+print(pet_addition1.status_code)
