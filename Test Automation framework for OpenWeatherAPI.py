@@ -6,7 +6,6 @@ def build_endpoint(endpoint, api_key, **kwargs):
     kw = dict(kwargs)
     return f"https://api.openweathermap.org/data/3.0/{endpoint}?{'&'.join([f'{i}={j}' for i,j in zip(kw.keys(), kw.values())])}&appid={api_key}"
 
-# print(endpoint("onecall", "biuvb8734g7vghvhjbvrkcfmn874uij5hrf", lat=65))
 
 class AbstractApiClient:
     def __init__(self, api_key):
@@ -34,10 +33,6 @@ class CurrentWeatherClient(AbstractApiClient):
             q += f',{country_code}'
         return self._get('weather', q=q)
 
-odesa = AbstractApiClient("15bca8c10e86424df00fa826657dca87")
-print(odesa._get("onecall", lan=76387, lon=8473).status_code)
-del odesa
-
 import pytest
 
 @pytest.fixture(scope="session")
@@ -46,7 +41,11 @@ def current_weather_client():
     yield api_client
     del api_client
 
-
+@pytest.mark.parametrize("city, country_code",[
+    ("kyiv", "ua"),
+    ("warsaw", "pl"),
+    ("berlin", "de")
+])
 def test_current_weather(self, client:CurrentWeatherClient, city, country_code):
     single_request = client.get_current_weather(city)
     city_current_weather = client.get_current_weather(city, country_code=country_code)
