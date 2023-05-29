@@ -12,9 +12,9 @@ class BasicAPIClient:
         endpoint = self.basic_url + str(endp)
         return endpoint
 
-    def _get(self, endp):
+    def _get(self, endp, **kwargs):
         endpoint = self.build_endpoint(endp)
-        return self.__client.get(endpoint)
+        return self.__client.get(endpoint, params=kwargs)
 
     def _post(self, endp, data):
         endpoint = self.build_endpoint(endp)
@@ -33,5 +33,6 @@ class BasicAPIClient:
 
 
     def __del__(self):
+        print("Session closed!")
         self.__client.close()
 
