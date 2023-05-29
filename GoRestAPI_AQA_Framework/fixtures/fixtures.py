@@ -4,7 +4,7 @@ from GoRestAPI_AQA_Framework.data_provider import *
 
 @pytest.fixture(scope="session")
 def api_client():
-    client = BasicAPIClient("4ecc7a7f15532f24821f31d2604d0bc69c19562496286a142c554e4f914c2bfb")
+    client = BasicAPIClient("671ee6c260c14819c55da7e1d865032cd2cce86b1c196e477b293a434f19591f")
     yield client
     del client
 
@@ -15,6 +15,15 @@ def user_endp():
 
 
 @pytest.fixture
-def return_data_provider():
-    dataprovider = DataProvider()
+def return_data_provider_user():
+    dataprovider = DataProviderUser()
     return dataprovider()
+
+@pytest.fixture
+def posts_endpoint():
+    return "/public/v2/users/2204089/posts"
+
+@pytest.fixture
+def return_data_provider_posts():
+    data_provider = DataProviderPosts()
+    return data_provider()

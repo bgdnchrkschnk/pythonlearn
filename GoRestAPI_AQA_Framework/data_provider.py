@@ -3,7 +3,7 @@ import random
 import string
 import requests
 
-class DataProvider:
+class DataProviderUser:
 
     def get_random_name(self):
         response = requests.get(url="https://names.drycodes.com/10?nameOptions=girl_names").text
@@ -19,9 +19,20 @@ class DataProvider:
         data = dict(email=email, name=name, gender=gender, status=status)
         return data
 
+class DataProviderPosts(DataProviderUser):
 
+    def get_random_text(self):
+        data = {"LoremType":"Normal",
+                "Type":"words",
+                "length":"4",
+                "__Invariant":"length",
+                "X-Requested-With":"XMLHttpRequest"}
+        response = requests.post(url="https://randommer.io/Text", data=data)
+        return response.text
 
+    def __call__(self):
+        title = self.get_random_name()
+        body = self.get_random_text()
+        data = dict(title=title, body=body)
+        return data
 
-# def data_provider(**kwargs):
-#     data = {k:v for k, v in dict(kwargs).items()}
-#     return data

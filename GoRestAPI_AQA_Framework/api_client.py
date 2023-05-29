@@ -18,7 +18,12 @@ class BasicAPIClient:
 
     def _post(self, endp, data):
         endpoint = self.build_endpoint(endp)
-        return self.__client.post(url=endpoint, json=data)
+        return self.__client.post(url=endpoint, data=data)
+
+    def _put(self, endp, data):
+        endpoint = self.build_endpoint(endp)
+        return self.__client.put(url=endpoint, data=data)
+
 
     def __head_upd(self):
         header = f"Bearer {self.__api_key}"
@@ -29,9 +34,4 @@ class BasicAPIClient:
 
     def __del__(self):
         self.__client.close()
-
-
-a = BasicAPIClient("4ecc7a7f15532f24821f31d2604d0bc69c19562496286a142c554e4f914c2bfb")
-print(a._get("/public/v2/users/2204089").json())
-
 
