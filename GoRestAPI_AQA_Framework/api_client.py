@@ -36,3 +36,4 @@ class BasicAPIClient:
         print("Session closed!")
         self.__client.close()
 
+
