@@ -28,3 +28,4 @@ def test_create_post(api_client, posts_endpoint, return_data_provider_posts):
 def test_put_user(api_client, user_endp, return_data_provider_user):
     response = api_client._put(user_endp+"2257480", data=return_data_provider_user)
     assert response.ok
+
