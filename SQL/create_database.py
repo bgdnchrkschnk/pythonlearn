@@ -6,8 +6,8 @@ import click
 @click.command()
 @click.option('--host', default='localhost', help='MySQL to connect to')
 @click.option('--port', default=3306, help='MySQL to connect to')
-@click.option('--username', help='Database username')
-@click.option('--password', help='Database password')
+@click.option('--username', default="root", help='Database username')
+@click.option('--password', default="2445253aQ", help='Database password')
 @click.option('--database', help='Database to create')
 def create_database(host, port, username, password, database):
     db_connector = mysql.connector.connect(username=username, password=password, host=host, port=port)
