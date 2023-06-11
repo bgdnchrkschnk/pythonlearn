@@ -1,7 +1,7 @@
 import mysql.connector
 import click
 
-from SQL.helper import *
+from helper import *
 
 @click.command()
 @click.option('--host', default='localhost', help='MySQL to connect to')
@@ -36,23 +36,23 @@ def insert_data(host, port, username, password, database):
         item = items[item_in_shop['ITEM']]
         shop = shops[item_in_shop['SHOP']]
         print(item)
-        cursor.execute("SELECT ID FROM item WHERE ITEM_NAME = %(item_name)s ",
-                                 {"item_name": item["ITEM_NAME"]})
-        print(cursor.statement)
-        item_id = int(cursor.fetchone()[0])
-        print(item_id)
-        cursor.execute("SELECT ID FROM shop WHERE NAME = %(shop_name)s AND ADDRESS = %(shop_address)s",
-                                 {"shop_name": shop["NAME"], "shop_address": shop["ADDRESS"]})
-        shop_id = int(cursor.fetchone()[0])
-
-        print(cursor.statement)
-        print(shop_id)
-
-        items_data_rows.append((shop_id, item_id))
-
-    cursor.executemany("INSERT INTO item_shop (SHOP_ID, ITEM_ID) VALUES (%s, %s)", items_data_rows)
-    print(cursor.statement)
-    db_connector.commit()
+    #     cursor.execute("SELECT ID FROM item WHERE ITEM_NAME = %(item_name)s ",
+    #                              {"item_name": item["ITEM_NAME"]})
+    #     print(cursor.statement)
+    #     item_id = int(cursor.fetchone()[0])
+    #     print(item_id)
+    #     cursor.execute("SELECT ID FROM shop WHERE NAME = %(shop_name)s AND ADDRESS = %(shop_address)s",
+    #                              {"shop_name": shop["NAME"], "shop_address": shop["ADDRESS"]})
+    #     shop_id = int(cursor.fetchone()[0])
+    #
+    #     print(cursor.statement)
+    #     print(shop_id)
+    #
+    #     items_data_rows.append((shop_id, item_id))
+    #
+    # cursor.executemany("INSERT INTO item_shop (SHOP_ID, ITEM_ID) VALUES (%s, %s)", items_data_rows)
+    # print(cursor.statement)
+    # db_connector.commit()
     db_connector.close()
 
 
