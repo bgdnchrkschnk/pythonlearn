@@ -20,3 +20,4 @@ def create_database(host, port, username, password, database):
 
 if __name__ == "__main__":
    create_database()
+
