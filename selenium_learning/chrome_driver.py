@@ -24,11 +24,15 @@ chrome_options.add_argument("--disable-extensions")
 chrome_browser = webdriver.Chrome(options=chrome_options)
 
 chrome_browser.maximize_window()
-chrome_browser.get("https://www.google.com.ua")
+chrome_browser.get("https://www.github.com")
+sleep(1)
+chrome_browser.get("https://about.gitlab.com/")
+chrome_browser.back()
+sleep(1)
+chrome_browser.forward()
 print(chrome_browser.current_url)
 print(chrome_browser.title)
-
-sleep(5)
+sleep(1)
 
 chrome_browser.quit()
 
