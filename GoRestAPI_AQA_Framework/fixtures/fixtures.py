@@ -2,7 +2,7 @@ import pytest
 from GoRestAPI_AQA_Framework.api_client import *
 from GoRestAPI_AQA_Framework.data_provider import *
 
-@pytest.fixture(scope="session")
+@pytest.fixture(autouse=True, scope="session")
 def api_client():
     client = BasicAPIClient("671ee6c260c14819c55da7e1d865032cd2cce86b1c196e477b293a434f19591f")
     yield client

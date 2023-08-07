@@ -26,16 +26,16 @@ class BasicApiClient:
         print(self._client.post(url, json=data))
 
 a = BasicApiClient()
-print(a._get("/pet/5/").status_code)
+print(a._post("/pet/")
 
-@pytest.fixture(scope="session")
-def api_client():
-    client = BasicApiClient()
-    yield client
-    del client
-
-# @pytest.mark.parametrize("pet_id",[5, 10])
-def test_get_pet_id(api_client):
-    r = "/pet/" + str(10)
-    endpoint = build_url(r)
-    assert api_client._get("/pet/10").status_code != 500
+# @pytest.fixture(scope="session")
+# def api_client():
+#     client = BasicApiClient()
+#     yield client
+#     del client
+#
+# # @pytest.mark.parametrize("pet_id",[5, 10])
+# def test_get_pet_id(api_client):
+#     r = "/pet/" + str(10)
+#     endpoint = build_url(r)
+#     assert api_client._get("/pet/10").status_code != 500

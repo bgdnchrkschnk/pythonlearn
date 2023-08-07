@@ -1,14 +1,14 @@
-# try:
-#     print(3+"hhh")
-# except TypeError:
-#     print("except TypeError")
-# #else виконується в випадку, якщо except блоки не були задіяні:
-# # обовʼязково має бути присутній хочаб один except в конструкції
-# else:
-#     print("everything is good")
-# #finally виконується усіх випадках конструкції
-# finally:
-#     print("finally")
+try:
+    print(3+"dnnv")
+except TypeError:
+    print("except TypeError")
+#else виконується в випадку, якщо except блоки не були задіяні:
+# обовʼязково має бути присутній хочаб один except в конструкції
+else:
+    print("everything is good")
+#finally виконується усіх випадках конструкції
+finally:
+    print("finally")
 
 
 # def kvadrat_chysla(x):

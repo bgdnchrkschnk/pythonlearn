@@ -17,5 +17,7 @@ class Human:
         print(cls.__population)
 
 slavik = Human("Slava", "Zelinsky", 26, "Male")
-slavik2 = Human("Slava", "Zelinsky", 26, "Male")
-slavik.print_population()
+
+# print(slavik.__class__.__population)
+# slavik2 = Human("Slava", "Zelinsky", 26, "Male")
+# slavik.print_population()

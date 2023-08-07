@@ -2,7 +2,6 @@ import mysql.connector
 import click
 
 
-
 @click.command()
 @click.option('--host', default='localhost', help='MySQL to connect to')
 @click.option('--port', default=3306, help='MySQL to connect to')

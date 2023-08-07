@@ -11,7 +11,7 @@ def insert_data(host, port, username, password, database):
     db_connector = mysql.connector.connect(username=username, password=password, port=port, database=database, host=host)
     cursor = db_connector.cursor()
     name = "NAME"
-    sql = f"SELECT * FROM test.shop"
+    sql = f'SELECT * FROM test.shop WHERE {name}="ATB"'
     try:
         cursor.execute(sql)
         result = cursor.fetchall()
