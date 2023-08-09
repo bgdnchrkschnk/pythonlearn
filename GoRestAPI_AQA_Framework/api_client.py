@@ -47,6 +47,3 @@ class UsersRequests(BasicAPIClient):
 
     def post(self, data:dict):
         return self._post(self.endp, data=data)
-
-
-
