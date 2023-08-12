@@ -9,15 +9,6 @@ import random
 import string
 from selenium_learning.selenium_test_task.fixtures import *
 
-chrome_options = Options()
-chrome_options.add_argument("--disable-extensions")
-
-@pytest.fixture
-def chrome_browser():
-    driver = webdriver.Chrome(options=chrome_options)
-    driver.maximize_window()
-    yield driver
-    driver.quit()
 
 
 def test_page_is_correct(chrome_browser):
@@ -64,14 +55,20 @@ def test_page_is_correct(chrome_browser):
 #         assert not item.is_selected(), "SELECTED"
 #     assert chrome_browser.find_element(By.CSS_SELECTOR, "input.gh-tb") == chrome_browser.find_element(By.ID, "gh-ac")
 
-
+@pytest.mark.this
 def test_joom(chrome_joom:Chrome):
     search_bar = chrome_joom.find_element(By.CSS_SELECTOR, "input.input___QjcpQ")
+    search_button = chrome_joom.find_element(By.CSS_SELECTOR, "button.submitButton___Ufc6Q")
     sleep(2)
     cross = chrome_joom.find_element(By.CSS_SELECTOR, "button.close___ukMoE")
     cross.click()
-    sleep(2)
-    check.is_true(search_bar.is_displayed(), "Fail")
-    check.is_true(search_bar.is_enabled(), "Fail")
+    sleep(4)
     search_bar.send_keys("swiss tool")
-    sleep(2)
+    search_button.click()
+    sleep(3)
+    items = chrome_joom.find_elements(By.CSS_SELECTOR, "div.cell___DVxJ3")
+    check.is_true(len(items)>10, "Less 10 items on page!")
+    prices = chrome_joom.find_elements(By.CSS_SELECTOR, "a>div.prices____Znwd")
+    descr = chrome_joom.find_elements(By.CSS_SELECTOR, "a>div.name___vIcd9")
+    check.is_true(len(prices)==len(descr))
+    check.is_true(len(descr)==len(items))
