@@ -16,4 +16,5 @@ def testcase_user_invalid_pw(session):
         }
     }
     response = session._post("users", user_data)
-    assert "Username has already been taken" in dict(response.json()).values(), response.json()
+    # assert "Username has already been taken" in dict(response.json()).values(), response.json()
+    assert "Username has already been taken" in response.json()['message'], response.json()

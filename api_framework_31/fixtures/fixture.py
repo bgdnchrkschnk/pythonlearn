@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from api_framework_31.api_client import BaseApiClient
 from randomuser import RandomUser as users

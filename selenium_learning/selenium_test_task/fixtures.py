@@ -1,5 +1,6 @@
 import pytest
 import selenium
+from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture
@@ -9,3 +10,10 @@ def chrome_browser():
     driver = selenium.webdriver.Chrome(options=options)
     yield driver
     driver.quit()
+
+@pytest.fixture
+def chrome_joom():
+    driver = Chrome()
+    driver.get("https://joom.com/en")
+    yield driver
+    driver
