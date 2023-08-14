@@ -17,4 +17,12 @@ def chrome_joom():
     driver = Chrome()
     driver.get("https://joom.com/en")
     yield driver
-    driver
+    driver.quit()
+
+@pytest.fixture
+def chrome_isqi():
+    driver = Chrome()
+    driver.get("https://isqi.org/en")
+    driver.maximize_window()
+    yield driver
+    driver.quit()

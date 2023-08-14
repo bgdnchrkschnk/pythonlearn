@@ -5,7 +5,7 @@ from selenium.webdriver.support.select import Select
 from time import sleep
 
 
-
+# LECTURE
 driver = webdriver.Chrome()
 driver.maximize_window()
 
@@ -22,3 +22,4 @@ def test():
 
 if __name__ == '__main__':
     test()
+
