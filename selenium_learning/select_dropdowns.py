@@ -10,14 +10,14 @@ driver = webdriver.Chrome()
 driver.maximize_window()
 
 def test():
-    driver.get("https://ucoz.ru/")
+    driver.get("https://docs.python.org/3/library/pydoc.html")
     sleep(2)
-    element = Select(driver.find_element(By.CSS_SELECTOR, "div.open"))
+    element = Select(driver.find_element(By.CSS_SELECTOR, "#language_select"))
     sleep(2)
-    element.select_by_index("2")
+    element.select_by_value("fr")
     sleep(5)
     el2 = driver.find_element(By.CSS_SELECTOR, "button.lang-btn")
-    assert el2.text == "Python 2.7.18 documentation", "Text wrong"
+    assert el2.text == "pydoc — Générateur de documentation et système d’aide en ligne", "Text wrong"
     driver.quit()
 
 if __name__ == '__main__':
