@@ -1,4 +1,4 @@
-from datetime import date
+from date_time import date
 from abc import ABC, abstractmethod
 import random
 
@@ -70,7 +70,7 @@ class Man(Human):
         return f"{self.name} {self.surname}"
 
 
-import datetime
+import date_time
 
 
 class Woman(Human):
