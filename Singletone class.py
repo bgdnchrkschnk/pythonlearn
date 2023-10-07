@@ -1,9 +1,9 @@
 class MyPartner:
-    __INSTANCE = None
+    _INSTANCE = None
 
     def __new__(cls, *args, **kwargs):
-        if not cls.__INSTANCE:
-            cls.__INSTANCE = super().__new__(cls)
+        if not cls._INSTANCE:
+            return super().__new__(cls)
         else:
             raise Exception("Instance already exists!")
 
@@ -14,10 +14,28 @@ class MyPartner:
         self.name = name
         self.age = age
         self.sex = sex
-
+        self.__class__._INSTANCE = self
 
 
 a = MyPartner("Anya", 21, "Female")
-s = MyPartner("Sveta", 38, "Female")
+# s = MyPartner("Sveta", 38, "Female")
+print(a.__class__._INSTANCE)
+
+
 # s.__del__()
-print(a.age, s.age)
+
+
+class A:
+    _INSTANCE = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._INSTANCE:
+            return super.__new__(cls)
+        else:
+            raise Exception("Instance already exists!")
+
+    def __init__(self):
+        self.__class__._INSTANCE = self
+
+
+
