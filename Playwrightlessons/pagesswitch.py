@@ -12,12 +12,17 @@ with sync_playwright() as p:
     print(len(total_pages))
     for page in total_pages:
         print(page)
+
     new_page = total_pages[1]
+    page = total_pages[0]
+
     new_page.bring_to_front()
     new_page.wait_for_timeout(3000)
     print(new_page.title())
-    # total_pages[0].bring_to_front()
-    print(total_pages[0].title())
+    print(page.title())
+
+    page.bring_to_front()
+    page.wait_for_timeout(3000)
     new_page.close()
     page.wait_for_timeout(3000)
     browser.close()
