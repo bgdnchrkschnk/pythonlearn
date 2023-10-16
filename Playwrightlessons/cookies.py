@@ -16,6 +16,9 @@ with sync_playwright() as p:
 
     print(context.cookies())
 
+    cookie = {"name":"test"}
+    context.add_cookies(cookies=[cookie])
+
     # with open("savedcookies.json", "w") as c:
     #     c.write(json.dumps(context.cookies()))
     #
