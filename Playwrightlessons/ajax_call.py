@@ -15,7 +15,7 @@ with sync_playwright() as p:
     page.goto(url="https://www.plus2net.com/php_tutorial/ajax_drop_down_list-demo.php")
     page.select_option(value="2", selector="#s1")
 
-    page.on("response", lambda response: handle_rejex(response))
+    # page.on("response", lambda response: handle_rejex(response))
 
     page.wait_for_timeout(3000)
     browser.close()
