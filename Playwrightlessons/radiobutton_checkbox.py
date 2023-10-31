@@ -8,6 +8,9 @@ with sync_playwright() as p:
     checkbox = page.locator(selector="#checkbox1")
     checkbox.check()
     female_option.check()
+    page.wait_for_timeout(2000)
+    checkbox.uncheck()
+    # female_option.uncheck()
     if female_option.is_checked() and checkbox.is_checked():
         print("Success!")
     else:
