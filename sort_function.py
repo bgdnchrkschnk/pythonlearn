@@ -29,3 +29,4 @@ def sort_list_descending(l: list = None):
 
 
 print(sort_list_descending(x))
+print([] or [])
