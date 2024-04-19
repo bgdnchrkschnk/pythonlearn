@@ -1,18 +1,21 @@
 import random
 
+# str = "Denis"
 
-# def main(name="Bogdan"):
-#     name = name
-#
-#     def text(t="Hello"):
-#         nonlocal name
-#         print(f"{t}, {name}!")
-#
-#     return text
-#
-#
-# # func2 = main("Slavik")
-# # func2("Fuck you")
+def main():
+    # str = "Bogdan"
+
+    def text(t="Hello"):
+        # str = "yefuwbjb"
+        print(type())
+
+    text()
+
+main()
+
+
+# func2 = main("Slavik")
+# func2("Fuck you")
 #
 #
 # def initialize():
@@ -49,22 +52,22 @@ import random
 # nn()
 
 
-def add(a, b):
-    return a + b
-
-
-def counter(func):
-    count = 0
-
-    def wrapper(*args, **kwargs):
-        nonlocal count
-        count += 1
-        print(f"Function {func.__name__} called for {count} times!")
-        return func(*args, **kwargs)
-
-    return wrapper
-
-r = counter(add)
-r(1, 2)
-r(4, 14)
+# def add(a, b):
+#     return a + b
+#
+#
+# def counter(func):
+#     count = 0
+#
+#     def wrapper(*args, **kwargs):
+#         nonlocal count
+#         count += 1
+#         print(f"Function {func.__name__} called for {count} times!")
+#         return func(*args, **kwargs)
+#
+#     return wrapper
+#
+# r = counter(add)
+# r(1, 2)
+# r(4, 14)
 
