@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, PositiveInt, HttpUrl
 
 
 class Hobbie(BaseModel):
@@ -12,7 +12,9 @@ class Hobbie(BaseModel):
 class User(BaseModel):
     name: str = "unnamed"
     sex: str
-    age: int
+    age: PositiveInt
+    email: EmailStr | None
+    account_link: Optional[HttpUrl]
     married: bool
     hobbies: list[Hobbie | None]
 
@@ -31,7 +33,9 @@ singing = Hobbie(**singing_dict)
 bogdan_dict = {"name": "Bogdan",
                "sex": "male",
                "age": 18,
+               "email": "testemail@gmail.com",
                "married": True,
+               "account_link": "https://vk.com",
                "hobbies": [singing]}
 
 bogdan = User(**bogdan_dict)
