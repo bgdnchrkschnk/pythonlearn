@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel, EmailStr, PositiveInt, HttpUrl, conlist
+from pydantic import BaseModel, EmailStr, PositiveInt, HttpUrl, field_validator
 
 
 class Hobbie(BaseModel):
@@ -16,25 +16,25 @@ class User(BaseModel):
     email: EmailStr | None
     account_link: Optional[HttpUrl]
     married: bool
-    hobbies: list[Hobbie | None]
+    hobbies: Optional[list[Hobbie]]
+
+    @field_validator("sex")
+    @classmethod
+    def sex_field_validate(cls, value: str) -> str:
+        possible_values = {"male", "female"}
+        if value not in possible_values:
+            raise ValueError(f"Unsupported sex value: Possible: {possible_values}")
+        return value
 
 
-class School(BaseModel):
-    name: str
-    classes: conlist(str, min_length=4)
-    students: conlist(User, min_length=1)
-
-
-singing_dict = {"name":"Nikita",
+singing_dict = {"name": "Nikita",
                 "description": "Musician hobbie when person sings",
                 "recommendations": ["Regular trainings",
                                     "Drink warm water",
                                     "Sleep well"]
                 }
 
-
 singing = Hobbie(**singing_dict)
-
 
 bogdan_dict = {"name": "Bogdan",
                "sex": "male",
@@ -47,12 +47,3 @@ bogdan_dict = {"name": "Bogdan",
 bogdan = User(**bogdan_dict)
 
 print(bogdan.model_dump_json(indent=True))
-
-
-my_school_dict = {"name": "Lanzheronovskiy liceum",
-                  "classes": ["10-A", "10-B", "11-A", "11-B", "10-A"],
-                  "students": [bogdan]}
-
-my_school = School(**my_school_dict)
-
-print(my_school.model_dump_json(indent=True))
