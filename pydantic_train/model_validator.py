@@ -3,6 +3,12 @@ from typing import Optional
 from pydantic import BaseModel, EmailStr, PositiveInt, HttpUrl, model_validator
 
 
+class Hobbie(BaseModel):
+    name: str = None
+    description: str
+    recommendations: list[str] | None
+
+
 class User(BaseModel):
     name: str = "unnamed"
     sex: str
@@ -10,7 +16,7 @@ class User(BaseModel):
     email: EmailStr | None
     account_link: Optional[HttpUrl]
     married: bool
-    hobbies: Optional[list[str]]
+    hobbies: Optional[list[Hobbie]]
 
     @model_validator(mode="before")
     @classmethod
@@ -20,6 +26,21 @@ class User(BaseModel):
                 raise ValueError(f"{key} field is not expected in schema!")
         return data
 
+    @model_validator(mode="after")
+    def validator(self):
+        if not self.age >= 18:
+            raise ValueError("Only 18+")
+        return self
+
+
+singing_dict = {"name": "singing",
+                "description": "Musician hobbie when person sings",
+                "recommendations": ["Regular trainings",
+                                    "Drink warm water",
+                                    "Sleep well"]
+                }
+
+singing = Hobbie(**singing_dict)
 
 bogdan_dict = {"name": "Bogdan",
                "sex": "male",
@@ -27,8 +48,7 @@ bogdan_dict = {"name": "Bogdan",
                "email": "testemail@gmail.com",
                "married": True,
                "account_link": "https://vk.com",
-               "hobbies": ["singing"],
-               "model": "tesla"}
+               "hobbies": [singing]}
 
 bogdan = User(**bogdan_dict)
 
