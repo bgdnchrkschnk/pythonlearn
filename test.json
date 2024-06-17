@@ -1,0 +1,13 @@
+{
+ "id": "c9e7c7ec256541cfb4518eb6f929e712",
+ "name": "Bogdan",
+ "gender": "male",
+ "age": 18,
+ "email": "testemail@gmail.com",
+ "account_link": "https://vk.com/",
+ "married": false,
+ "hobbies": [
+  "singing"
+ ],
+ "test": 180
+}
