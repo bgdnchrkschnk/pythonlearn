@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pydantic import BaseModel, EmailStr, PositiveInt, HttpUrl, field_validator
+from pydantic import BaseModel, EmailStr, PositiveInt, HttpUrl, field_validator, ValidationError
 
 
 class Hobbie(BaseModel):
@@ -46,4 +46,14 @@ bogdan_dict = {"name": "Bogdan",
 
 bogdan = User(**bogdan_dict)
 
-print(bogdan.model_dump_json(indent=True))
+# print(bogdan.model_dump_json(indent=True))
+
+# try:
+#     User.model_validate(bogdan_dict)
+# except ValidationError as err:
+#     raise err
+# else:
+#     print(f"object bogdan_dict validated")
+
+print(bogdan.hobbies[0].json())
+
